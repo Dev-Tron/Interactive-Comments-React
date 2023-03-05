@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Interactive-Comment-React/static/css/main.f87db60f.css",
-    "main.js": "/Interactive-Comment-React/static/js/main.3f5e12a2.js",
-    "static/js/496.0320d045.chunk.js": "/Interactive-Comment-React/static/js/496.0320d045.chunk.js",
-    "index.html": "/Interactive-Comment-React/index.html",
-    "main.f87db60f.css.map": "/Interactive-Comment-React/static/css/main.f87db60f.css.map",
-    "main.3f5e12a2.js.map": "/Interactive-Comment-React/static/js/main.3f5e12a2.js.map",
-    "496.0320d045.chunk.js.map": "/Interactive-Comment-React/static/js/496.0320d045.chunk.js.map"
+    "main.css": "/Interactive-Comments-React/static/css/main.f87db60f.css",
+    "main.js": "/Interactive-Comments-React/static/js/main.90f81177.js",
+    "static/js/496.0320d045.chunk.js": "/Interactive-Comments-React/static/js/496.0320d045.chunk.js",
+    "index.html": "/Interactive-Comments-React/index.html",
+    "main.f87db60f.css.map": "/Interactive-Comments-React/static/css/main.f87db60f.css.map",
+    "main.90f81177.js.map": "/Interactive-Comments-React/static/js/main.90f81177.js.map",
+    "496.0320d045.chunk.js.map": "/Interactive-Comments-React/static/js/496.0320d045.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f87db60f.css",
-    "static/js/main.3f5e12a2.js"
+    "static/js/main.90f81177.js"
   ]
 }
