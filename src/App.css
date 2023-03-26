@@ -58,6 +58,16 @@ p {
   align-self: flex-start;
 }
 
+.counter > img {
+  padding: 4px;
+}
+
+.counter > img:hover {
+  transition: ease-in-out 200ms;
+  background-color: #5660BC;
+  cursor: pointer;
+}
+
 .reply {
   margin-right: .5rem;
 }
@@ -78,12 +88,6 @@ p {
   margin-right: -2%;
 }
 
-.delete-edit {
-  height: 50%;
-  width: 50%;
-  margin-top: 3px;
-}
-
 button {
   cursor: pointer;
   background-color: hsl(238, 40%, 52%);
@@ -92,4 +96,17 @@ button {
   padding: .50rem 1.5rem;
   border-radius: 8px;
   font-weight: 500;
+}
+
+.target-area {
+  border-radius: 5px;
+  padding: 5%;
+  border: 1px solid hsl(223, 19%, 93%)
+}
+
+.delete-edit {
+  height: 15px;
+  width: 15px;
+  margin-top: 2%;
+  cursor: pointer;
 }
