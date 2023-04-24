@@ -41,7 +41,6 @@ p {
 .counter-reply-buttons {
   margin-top: .5rem;
   display: flex;
-  justify-content: space-between;
 }
 
 .counter {
@@ -56,6 +55,7 @@ p {
   background-color: hsl(228, 33%, 97%);
   border-radius: 8px;
   align-self: flex-start;
+  margin-right: auto;
 }
 
 .counter > img {
@@ -109,4 +109,30 @@ button {
   width: 15px;
   margin-top: 2%;
   cursor: pointer;
+}
+
+.reply-action {
+  cursor: pointer;
+}
+
+.delete-box {
+  margin-top: 10px;
+  margin-left: 10px;
+  color: rgb(237, 100, 104);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.edit-box {
+  margin-top: 10px;
+  margin-left: 10px;
+  color: hsl(238, 40%, 52%);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.comment-actions {
+  display: flex
 }
