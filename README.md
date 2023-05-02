@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![]([./screenshot.jpg](https://github.com/Dev-Tron/Interactive-Comments-React/blob/codespace-dev-tron-psychic-space-eureka-749v4gpwj552prwj/design/Screenshot%202023-05-01%20at%209.57.46%20PM.png?raw=true))
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
@@ -42,8 +42,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Dev-Tron/Interactive-Comments-React.git)
-- Live Site URL: [Add live site URL here](https://dev-tron.github.io/Interactive-Comments-React/)
+- Solution URL: (https://github.com/Dev-Tron/Interactive-Comments-React.git)
+- Live Site URL: (https://dev-tron.github.io/Interactive-Comments-React/)
 
 ## My process
 
