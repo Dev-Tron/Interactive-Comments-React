@@ -2,6 +2,7 @@ import { useState } from "react"
 import { currentUser } from "../data"
 import { EditBox } from "./edit-comment"
 import { ImageSend } from "./edit-comment"
+import { SendButton } from "./add-new-comment"
 
 export default function EditReply({ commentData, setCommentData, commentId, setEditReply, replyId }) {
     const [input, setInput] = useState('')
@@ -47,9 +48,10 @@ export default function EditReply({ commentData, setCommentData, commentId, setE
                 <div>
                     <img className='user-img' src={currentUser.image.png} alt="user-avatar"></img>
                 </div>
-                <button onClick={() => handleEditReply(commentId, replyId)}>
+                <textarea value={input} onChange={handleInputChange} className="target-area2" name="Add-Comment" cols="48" rows="3" placeholder="Edit reply..." ></textarea>
+                <SendButton onClick={() => handleEditReply(commentId, replyId)}>
                     UPDATE
-                </button>
+                </SendButton>
             </ImageSend>
         </EditBox>
     )

@@ -23,6 +23,12 @@ p {
   gap: 1rem;
 }
 
+@media screen and (min-width: 1440px) {
+  .user-info-box {
+    justify-content: flex-start;
+  }
+}
+
 .user-img {
   height: 2rem;
   width: 2rem;
@@ -43,6 +49,13 @@ p {
   display: flex;
 }
 
+@media screen and (min-width: 1440px) {
+  .counter-reply-buttons {
+    display: none;
+  }
+}
+
+
 .counter {
   color: hsl(238, 40%, 52%);
   font-weight: 500;
@@ -57,6 +70,46 @@ p {
   align-self: flex-start;
   margin-right: auto;
 }
+
+@media screen and (min-width: 1440px) {
+  .counter {
+    display: none;
+  }
+}
+
+.counter-2 {
+  color: hsl(238, 40%, 52%);
+  font-weight: 500;
+  align-items: center;
+  gap: 1rem;
+  padding: .75rem;
+  padding-top: .5rem;
+  box-sizing: content-box;
+  background-color: hsl(228, 33%, 97%);
+  border-radius: 8px;
+  align-self: flex-start;
+  
+}
+
+@media screen and (max-width: 1439px) {
+  .counter-2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .counter-2 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.counter-2 > img:hover {
+  transition: ease-in-out 200ms;
+  background-color: #5660BC;
+  cursor: pointer;
+}
+
 
 .counter > img {
   padding: 4px;
@@ -80,22 +133,63 @@ p {
   font-weight: 500;
 }
 
+@media screen and (min-width: 1439px) {
+  .reply-box {
+    display: none;
+  }
+}
+
+
+
+.reply-box-2 {
+  margin-top: 10px;
+  color: hsl(238, 40%, 52%);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 48%;
+}
+
+.reply-box-2:hover {
+  opacity: .5;
+}
+
+@media screen and (max-width: 1439px) {
+  .reply-box-2 {
+    display: none;
+  }
+}
+
+.reply-box-3 {
+  margin-top: 10px;
+  color: hsl(238, 40%, 52%);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40%;
+}
+
+.reply-box-3:hover {
+  opacity: .5;
+}
+
+@media screen and (max-width: 1439px) {
+  .reply-box-3 {
+    display: none;
+  }
+}
+
+.reply-box:hover {
+  opacity: .5;
+}
+
 .date {
-  color: hsl(211, 10%, 45%);;
+  color: hsl(211, 10%, 45%);
 }
 
 .username {
   margin-right: -2%;
-}
-
-button {
-  cursor: pointer;
-  background-color: hsl(238, 40%, 52%);
-  color: hsl(228, 33%, 97%);
-  border: none;
-  padding: .50rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
+  font-size: 16px;
 }
 
 .target-area {
@@ -104,15 +198,38 @@ button {
   border: 1px solid hsl(223, 19%, 93%)
 }
 
+@media screen and (min-width: 1440px) {
+  .target-area {
+    display: none;
+  }
+}
+
+.target-area2 {
+  border-radius: 5px;
+  padding: 1%;
+  border: 1px solid hsl(223, 19%, 93%)
+}
+
+@media screen and (max-width: 1439px) {
+  .target-area2 {
+    display: none;
+  }
+}
+
 .delete-edit {
   height: 15px;
   width: 15px;
   margin-top: 2%;
   cursor: pointer;
+  margin-right: 7px;
 }
 
 .reply-action {
   cursor: pointer;
+}
+
+.reply-action:hover {
+  opacity: .5;
 }
 
 .delete-box {
@@ -135,4 +252,27 @@ button {
 
 .comment-actions {
   display: flex
+}
+
+.comment-actions-2 {
+  display: flex;
+}
+
+
+@media screen and (max-width: 1439px) {
+  .comment-actions-2 {
+    display: none;
+  }
+}
+
+.reply-container {
+  border-left: 2px solid hsl(223, 19%, 93%);
+  padding-left: 15px;
+}
+
+@media screen and (min-width: 1440px) {
+  .reply-container {
+    padding-left: 40px;
+    margin-left: 35px;
+  }
 }

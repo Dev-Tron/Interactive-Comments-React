@@ -2,13 +2,22 @@ import { useState } from "react"
 import { currentUser } from "../data"
 import { NewComment } from "./add-new-comment"
 import { ImageSend } from "./edit-comment"
+import { SendButton } from "./add-new-comment"
+
+function getCommentUser(id, comments) {
+    return `@${comments.find((comment) => comment.id === id)?.user?.username || ''}`
+}
 
 export default function AddReply({ setCommentData, commentId, commentData, setShowReply }) {
-    const [replyInput, setReplyInput] = useState('')
+    const [replyInput, setReplyInput] = useState(getCommentUser(commentId, commentData))
 
     const handleInputChange = (event) => {
         const { value } = event.target
         setReplyInput(value)
+    }
+
+    const formatReply = () => {
+        return replyInput.replace(/^@?(\w){1,30}/g, '')
     }
 
     const handleAddReply = () => {
@@ -18,7 +27,7 @@ export default function AddReply({ setCommentData, commentId, commentData, setSh
                     ...comment,
                     replies: [...comment.replies, {
                         id: comment.replies.length + 1,
-                        content: replyInput,
+                        content: formatReply(),
                         "createdAt": new Date().toLocaleString(),
                         score: 0,
                         replyingTo: comment.user.username,
@@ -34,7 +43,7 @@ export default function AddReply({ setCommentData, commentId, commentData, setSh
             } else {
                 return comment
             }
-        });
+        })
         setCommentData(newComments)
         setShowReply(false)
     }
@@ -46,9 +55,10 @@ export default function AddReply({ setCommentData, commentId, commentData, setSh
                 <div>
                     <img className='user-img' src={currentUser.image.png} alt="user-avatar"></img>
                 </div>
-                <button onClick={handleAddReply}>
-                    SEND
-                </button>
+                <textarea value={replyInput} onChange={handleInputChange} className="target-area2" name="Add-Comment" cols="52" rows="3" placeholder="Add a comment..." ></textarea>
+                <SendButton onClick={handleAddReply}>
+                    Reply
+                </SendButton>
             </ImageSend>
         </NewComment>
     )

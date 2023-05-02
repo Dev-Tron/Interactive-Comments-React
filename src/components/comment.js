@@ -9,7 +9,8 @@ import AddReply from './add-new-reply'
 import Reply from './reply'
 import { currentUser } from '../data'
 import EditComment from './edit-comment'
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const CommentBox = styled.div`
@@ -19,6 +20,11 @@ const CommentBox = styled.div`
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    gap: 25px;
+  }
 `
 
 
@@ -26,6 +32,7 @@ export default function Comment({ comment, commentData, setCommentData }) {
     const [showAddReply, setShowReply] = useState(false)
     const [showEditComment, setEditComment] = useState(false)
     const [show, setShow] = useState(false)
+    
     const handleClose = () => setShow(false)
 
     /*  A function that takes in the kind of action, i.e.
@@ -46,7 +53,7 @@ export default function Comment({ comment, commentData, setCommentData }) {
     }
 
     /*  A handler function that is triggered when the plus
-      or minus sign is clicked. We do the folowing:
+      or minus sign is clicked. We do the following:
         1. Iterate over all the comments in the state we created above.
         2. If the comment's ID matches the one our click handler provided, we change the score.
         3. If not, we simply return the comment as it was.
@@ -71,6 +78,9 @@ export default function Comment({ comment, commentData, setCommentData }) {
     const handleDeleteComment = (commentId) => {
         const newComments = commentData.filter((comment) => comment.id !== commentId)
         setCommentData(newComments)
+    }
+
+    const handleDeleteClick = () => {
         setShow(true)
     }
 
@@ -78,27 +88,51 @@ export default function Comment({ comment, commentData, setCommentData }) {
         <div>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Delete Comment</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>Are you sure you want to delete this comment? This will remove the comment and can't be undone.</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        NO, CANCEL
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
+                    <Button variant="danger" onClick={() => handleDeleteComment(comment.id)}>
+                        YES, DELETE
                     </Button>
                 </Modal.Footer>
             </Modal>
             <CommentBox className='comment-box'>
-                <div className='user-info-box'>
-                    <img className='user-img' src={comment.user.image.png} alt="user"></img>
-                    <div className='intro'>
-                        <h1 className='username'>{comment.user.username}</h1>
-                        <span className='date'>{comment.createdAt}</span>
+                <div className='counter-2'>
+                    <img onClick={() => handleCountChange('add', comment.id)} src={plus} alt="positive-sign"></img>
+                    <span>{comment.score}</span>
+                    <img onClick={() => handleCountChange('remove', comment.id)} src={minus} alt="minus-sign"></img>
+                </div>
+                <div>
+                    <div className='user-info-box'>
+                        <img className='user-img' src={comment.user.image.png} alt="user"></img>
+                        <div className='intro'>
+                            <h1 className='username'>{comment.user.username}</h1>
+                            <span className='date'>{comment.createdAt}</span>
+                        </div>
+                        {currentUser.username === comment.user.username ?
+                        <div className="comment-actions-2">
+                            <div className="delete-box" onClick={handleDeleteClick}>
+                                <img className='delete-edit' src={trashcan} alt={trashcan}></img>
+                                Delete
+                            </div>
+                            <div className="edit-box" onClick={() => setEditComment(!showEditComment)}>
+                                <img className='delete-edit' src={pencil} alt={pencil}></img>
+                                Edit
+                            </div>
+                        </div>
+                        : <div className='reply-box-2' onClick={() => setShowReply(!showAddReply)}>
+                            <img className='reply' src={check} alt="reply-check"></img>
+                            Reply
+                        </div>}
+                    </div>
+                    <div>
+                        <p className='content'>{comment.content}</p>
                     </div>
                 </div>
-                <p className='content'>{comment.content}</p>
                 <div className='counter-reply-buttons'>
                     <div className='counter'>
                         <img onClick={() => handleCountChange('add', comment.id)} src={plus} alt="positive-sign"></img>
@@ -106,20 +140,20 @@ export default function Comment({ comment, commentData, setCommentData }) {
                         <img onClick={() => handleCountChange('remove', comment.id)} src={minus} alt="minus-sign"></img>
                     </div>
                     {currentUser.username === comment.user.username ?
-                    <div className="comment-actions">
-                        <div className="delete-box" onClick={() => handleDeleteComment(comment.id)}>
-                            <img className='delete-edit' src={trashcan} alt={trashcan}></img>
-                            Delete
+                        <div className="comment-actions">
+                            <div className="delete-box" onClick={handleDeleteClick}>
+                                <img className='delete-edit' src={trashcan} alt={trashcan}></img>
+                                Delete
+                            </div>
+                            <div className="edit-box" onClick={() => setEditComment(!showEditComment)}>
+                                <img className='delete-edit' src={pencil} alt={pencil}></img>
+                                Edit
+                            </div>
                         </div>
-                        <div className="edit-box" onClick={() => setEditComment(!showEditComment)}>
-                            <img className='delete-edit' src={pencil} alt={pencil}></img>
-                            Edit
-                        </div>
-                    </div>
-                    : <div className='reply-box' onClick={() => setShowReply(!showAddReply)}>
-                        <img className='reply' src={check} alt="reply-check"></img>
-                        Reply
-                    </div>}
+                        : <div className='reply-box' onClick={() => setShowReply(!showAddReply)}>
+                            <img className='reply' src={check} alt="reply-check"></img>
+                            Reply
+                        </div>}
                 </div>
             </CommentBox>
             {showAddReply && <AddReply commentData={commentData} setCommentData={setCommentData} commentId={comment.id} setShowReply={setShowReply} />}

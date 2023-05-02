@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { currentUser } from "../data"
 import styled from 'styled-components'
+import { SendButton } from "./add-new-comment"
 
 export const EditBox = styled.div`
     background-color: white;
@@ -12,6 +13,11 @@ export const ImageSend = styled.div`
     display: flex;
     margin-top: 5%;
     justify-content: space-between;
+
+    @media (min-width: 1440px) {
+    margin-top: 1%;
+  }
+
 `
 
 export default function EditComment({ commentData, setCommentData, commentId, setEditComment }) {
@@ -47,9 +53,10 @@ export default function EditComment({ commentData, setCommentData, commentId, se
                 <div>
                     <img className='user-img' src={currentUser.image.png} alt="user-avatar"></img>
                 </div>
-                <button onClick={() => handleEditComment(commentId)}>
+                <textarea value={input} onChange={handleInputChange} className="target-area2" name="Add-Comment" cols="58" rows="3" placeholder="Add a comment..." ></textarea>
+                <SendButton onClick={() => handleEditComment(commentId)}>
                     UPDATE
-                </button>
+                </SendButton>
             </ImageSend>
         </EditBox>
     )
